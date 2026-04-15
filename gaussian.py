@@ -8,8 +8,7 @@ def back_substitution(U, c):
     #Duet quay lui tu cuoi dong
     for i in range(n - 1, -1, -1):                                  
         if abs(U[i][i]) < EPS:
-            x[i] = 0
-            continue
+            raise ValueError("He tam giac tren suy bien, khong co nghiem duy nhat.")
         #Giai nghiem
         sum_ax = 0.0
         for j in range(i + 1, n):
@@ -39,7 +38,7 @@ def gaussian_eliminate(A, b):
 
         #Bo qua viec khu cac phan tu bang 0
         if abs(pivot) < EPS:
-            continue
+            raise ValueError("He tam giac tren suy bien, khong co nghiem duy nhat.")
 
         for k in range(i + 1, n):
             factor = Ab[k][i] / pivot
